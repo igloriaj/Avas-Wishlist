@@ -80,5 +80,24 @@ export default function Record() {
   }
 
   //Display the form for creating or editing a record
-  return 
+  return (
+    <>
+      <h3>Create/Update Wishlist Item</h3>
+      <form onSubmit={onSubmit}>
+        <div className="form-group">
+          <label htmlFor="name">Name: </label>
+          <div><input type="text" id="name" value={form.name} onChange={(e) => updateForm({ name: e.target.value })} /></div>
+        </div>
+        <div className="form-group">
+          <label htmlFor="link">Link: </label>
+          <div><input type="text" id="link" value={form.link} onChange={(e) => updateForm({ link: e.target.value })} /></div>
+        </div>
+        <div className="form-group">
+          <label htmlFor="claimed">Claimed: </label>
+          <div><input type="checkbox" id="claimed" checked={form.claimed} onChange={(e) => updateForm({ claimed: e.target.checked })} /></div>
+        </div>
+        <input type="submit" value={isNew ? "Create Item" : "Update Item"} />
+      </form>
+    </>
+  )
 }

@@ -6,7 +6,7 @@ import {
 } from "react-router-dom"; 
 import './index.css'
 import App from './App.jsx'
-import Record from './components/Record.jsx';
+import Record from './components/record.jsx';
 import RecordList from './components/RecordList.jsx';
 
 const router = createBrowserRouter([
@@ -40,6 +40,16 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: '/edit/:id',
+    element: <App />,
+    children: [
+      {
+        path: '/edit/:id',
+        element: <Record />
+      },
+    ],
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
